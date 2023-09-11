@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page  errorPage="Error.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,9 +49,10 @@
                 resultado = num1 * num2;
                 break;
             case "/":
-                if (num2 != 0) {
-                    resultado = num1 / num2;
-                }
+                if (num2 == 0) {
+                	throw new ArithmeticException();
+                }else 
+                	resultado = num1 / num2;
                 break;
         }
         return resultado;
@@ -73,6 +75,8 @@
     <%
     }
     %>
+    
+    
     </div>
 
     </div>
